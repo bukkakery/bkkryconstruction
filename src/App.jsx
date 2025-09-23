@@ -142,7 +142,7 @@ function App() {
   // Las etiquetas de meta y título se han colocado directamente en el JSX.
   return (
     <ToastProvider>
-      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden bg-gray-900 text-white font-sans">
+      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden bg-gradient-to-br from-pink-400 to-purple-900 text-white font-sans">
         <title>Bukkakery - Under Construction | Professional Casting</title>
         <meta name="description" content="Bukkakery is building something amazing. Join our professional castings for girls and guys. Come back soon!" />
         <div className="absolute inset-0 opacity-10">
