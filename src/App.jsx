@@ -197,7 +197,6 @@ function App() {
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
               <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[calc(100%+2rem)] text-xl font-bold text-white mb-0">Casting</p>
-              <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-20 text-sm font-semibold text-white mt-0">Girls</p>
             </div>
 
             <div
@@ -210,7 +209,6 @@ function App() {
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
               <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[calc(100%+2rem)] text-xl font-bold text-white mb-0">Casting</p>
-              <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-20 text-sm font-semibold text-white mt-0">Guys</p>
             </div>
           </div>
 
