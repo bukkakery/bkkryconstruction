@@ -142,7 +142,15 @@ function App() {
   // Las etiquetas de meta y título se han colocado directamente en el JSX.
   return (
     <ToastProvider>
-      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden bg-gradient-to-br from-pink-400 to-purple-900 text-white font-sans">
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+          .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+          }
+        `}
+      </style>
+      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden bg-gradient-to-br from-cyan-400 to-blue-950 text-white font-montserrat">
         <title>Bukkakery - Under Construction | Professional Casting</title>
         <meta name="description" content="Bukkakery is building something amazing. Join our professional castings for girls and guys. Come back soon!" />
         <div className="absolute inset-0 opacity-10">
@@ -157,9 +165,9 @@ function App() {
           <div
             className="flex justify-center items-center transition-transform duration-600"
           >
-            {/* Se ha cambiado el enlace de marcador de posición por el enlace original de Google Drive */}
+            {/* AQUÍ DEBES REEMPLAZAR CON TU NUEVO ENLACE DE GITHUB PAGES */}
             <img 
-              src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/refs/heads/main/BUKKAKERY.COMLOGO.png" 
+              src="https://<tu-nombre-de-usuario>.github.io/bukkakery-assets/nombre-del-logo.png" 
               alt="Bukkakery Logo - Professional casting platform"
               className="max-w-md w-full h-auto drop-shadow-2xl"
             />
@@ -168,7 +176,7 @@ function App() {
           <div
             className="space-y-4 transition-opacity duration-600 delay-300"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg whitespace-nowrap">
               We're building something amazing!
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-medium">
@@ -183,25 +191,27 @@ function App() {
               className="cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSc2YkTX3niYNfODM8sHjwdZGqDy3eeL1P0FXIM3I7F8foxaVQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
-              {/* Se ha cambiado el enlace de marcador de posición por el enlace original de Google Drive */}
+              <p className="text-xl font-bold text-white mb-2">Casting</p>
+              {/* AQUÍ DEBES REEMPLAZAR CON TU NUEVO ENLACE DE GITHUB PAGES */}
               <img 
-                src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/refs/heads/main/GRILS.png"
+                src="https://<tu-nombre-de-usuario>.github.io/bukkakery-assets/nombre-del-icono-casting-girls.png"
                 alt="Casting icon for girls - white drop"
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
-              <p className="text-xl font-bold text-white mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Casting Girls</p>
+              
             </div>
 
             <div
               className="cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSe8jIC5PG8wQEXbbUpzgLOVDSGnKDy6vMS7HDkPwViiOd62UQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
+              <p className="text-xl font-bold text-white mb-2">Casting</p>
               <img 
-                src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/refs/heads/main/GUYS.png"
+                src="https://storage.googleapis.com/hostinger-horizons-assets-prod/80681178-fc08-4941-ba65-12e11bf9f38e/bb6e600ded531ba611bd4811ab6f85f0.png"
                 alt="Casting icon for guys - splash design"
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
-              <p className="text-xl font-bold text-white mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Casting Guys</p>
+              
             </div>
           </div>
 
