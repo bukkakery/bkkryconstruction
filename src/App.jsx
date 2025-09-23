@@ -191,7 +191,7 @@ function App() {
               className="cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSc2YkTX3niYNfODM8sHjwdZGqDy3eeL1P0FXIM3I7F8foxaVQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
-              <p className="text-xl font-bold text-white mb-2">Casting</p>
+              <p className="text-xl font-bold text-white mb-0">Casting</p>
               {/* AQUÍ DEBES REEMPLAZAR CON TU NUEVO ENLACE DE GITHUB PAGES */}
               <img 
                 src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/refs/heads/main/GRILS.png"
@@ -205,7 +205,7 @@ function App() {
               className="cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSe8jIC5PG8wQEXbbUpzgLOVDSGnKDy6vMS7HDkPwViiOd62UQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
-              <p className="text-xl font-bold text-white mb-2">Casting</p>
+              <p className="text-xl font-bold text-white mb-0">Casting</p>
               <img 
                 src="https://github.com/bukkakery/BUKKRY-ASTS/blob/main/GUYS.png?raw=true"
                 alt="Casting icon for guys - splash design"
