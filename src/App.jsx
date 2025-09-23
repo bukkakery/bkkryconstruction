@@ -112,7 +112,7 @@ function App() {
             className="flex justify-center items-center"
           >
             <img 
-              src="https://storage.googleapis.com/hostinger-horizons-assets-prod/80681178-fc08-4941-ba65-12e11bf9f38e/64a0b690c6e3d74f2031d1721ac59c0d.png" 
+              src="https://drive.google.com/uc?export=view&id=10oPo5xjtvYU9YAhp21CqizBDesxuwlbx" 
               alt="Bukkakery Logo - Professional casting platform"
               className="max-w-md w-full h-auto drop-shadow-2xl"
             />
@@ -145,7 +145,7 @@ function App() {
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSc2YkTX3niYNfODM8sHjwdZGqDy3eeL1P0FXIM3I7F8foxaVQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
               <img 
-                src="https://storage.googleapis.com/hostinger-horizons-assets-prod/80681178-fc08-4941-ba65-12e11bf9f38e/c2f187b5b8d287055932a61afcafab86.png"
+                src="https://drive.google.com/file/d/1mGTpbNihUPlKI0MohOkeYJqM4UIUKzxD"
                 alt="Casting icon for girls - white drop"
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl transition-transform duration-300"
               />
@@ -159,7 +159,7 @@ function App() {
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSe8jIC5PG8wQEXbbUpzgLOVDSGnKDy6vMS7HDkPwViiOd62UQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
               <img 
-                src="https://storage.googleapis.com/hostinger-horizons-assets-prod/80681178-fc08-4941-ba65-12e11bf9f38e/bb6e600ded531ba611bd4811ab6f85f0.png"
+                src="https://drive.google.com/file/d/1mGTpbNihUPlKI0MohOkeYJqM4UIUKzxD"
                 alt="Casting icon for guys - splash design"
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl transition-transform duration-300"
               />
