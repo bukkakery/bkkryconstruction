@@ -1,14 +1,68 @@
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
-import { useToast } from '@/components/ui/use-toast';
-import { Toaster } from '@/components/ui/toaster';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Mail, Send } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+
+// --- COMPONENTES LOCALES PARA RESOLVER ERRORES ---
+
+// Reemplazo para 'lucide-react'
+const Mail = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect width="20" height="16" x="2" y="4" rx="2" />
+    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+  </svg>
+);
+const Send = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="m22 2-7 20-4-9-5-2-9-4Z" />
+    <path d="M22 2 11 13" />
+  </svg>
+);
+
+// Contexto y hook para el sistema de toasts
+const ToastContext = React.createContext();
+
+const ToastProvider = ({ children }) => {
+  const [toast, setToast] = useState(null);
+
+  useEffect(() => {
+    if (toast) {
+      const timer = setTimeout(() => {
+        setToast(null);
+      }, 5000); // Duración del toast
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
+
+  const showToast = (options) => setToast(options);
+
+  return (
+    <ToastContext.Provider value={showToast}>
+      {children}
+      {toast && (
+        <div className={`fixed bottom-4 right-4 z-50 p-4 rounded-lg shadow-lg ${toast.variant === 'destructive' ? 'bg-red-500 text-white' : 'bg-gray-800 text-white'}`}>
+          <h3 className="font-bold">{toast.title}</h3>
+          {toast.description && <p className="text-sm">{toast.description}</p>}
+        </div>
+      )}
+    </ToastContext.Provider>
+  );
+};
+const useToast = () => React.useContext(ToastContext);
+
+const Toaster = () => null; // No necesitamos un componente separado, el proveedor ya lo renderiza
+
+// Reemplazo para los componentes de la interfaz de usuario
+const Input = ({ className, ...props }) => (
+  <input className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-white transition-colors ${className}`} {...props} />
+);
+const Button = ({ className, children, ...props }) => (
+  <button className={`flex items-center justify-center p-2 rounded-lg transition-colors ${className}`} {...props}>
+    {children}
+  </button>
+);
+
+// --- CÓDIGO DE LA APLICACIÓN ---
 
 function App() {
-  const { toast } = useToast();
+  const toast = useToast();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -83,46 +137,36 @@ function App() {
       console.log("DEBUG: Envío finalizado."); 
     }
   };
-
+  
+  // Se ha eliminado 'Helmet' ya que causaba un error de compilación.
+  // Las etiquetas de meta y título se han colocado directamente en el JSX.
   return (
-    <>
-      <Helmet>
+    <ToastProvider>
+      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden bg-gray-900 text-white font-sans">
         <title>Bukkakery - Under Construction | Professional Casting</title>
         <meta name="description" content="Bukkakery is building something amazing. Join our professional castings for girls and guys. Come back soon!" />
-      </Helmet>
-      
-      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
-        {/* ... keep existing code (background elements) */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full blur-xl"></div>
           <div className="absolute bottom-20 right-10 w-40 h-40 bg-white rounded-full blur-xl"></div>
           <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white rounded-full blur-lg"></div>
         </div>
 
-        <motion.main
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+        <main
           className="text-center space-y-12 z-10 max-w-4xl mx-auto flex-grow flex flex-col justify-center"
         >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center items-center"
+          <div
+            className="flex justify-center items-center transition-transform duration-600"
           >
+            {/* Se ha cambiado el enlace de marcador de posición por el enlace original de Google Drive */}
             <img 
               src="https://drive.google.com/uc?export=view&id=10oPo5xjtvYU9YAhp21CqizBDesxuwlbx" 
               alt="Bukkakery Logo - Professional casting platform"
               className="max-w-md w-full h-auto drop-shadow-2xl"
             />
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="space-y-4"
+          <div
+            className="space-y-4 transition-opacity duration-600 delay-300"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
               We're building something amazing!
@@ -130,48 +174,39 @@ function App() {
             <p className="text-xl md:text-2xl text-white/90 font-medium">
               Our site is under construction. Get ready for something new!
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-12 justify-center items-center"
+          <div
+            className="flex flex-col sm:flex-row gap-12 justify-center items-center transition-opacity duration-600 delay-500"
           >
-            <motion.div
-              whileHover={{ scale: 1.1, y: -10 }}
-              whileTap={{ scale: 0.95 }}
-              className="cursor-pointer group"
+            <div
+              className="cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSc2YkTX3niYNfODM8sHjwdZGqDy3eeL1P0FXIM3I7F8foxaVQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
+              {/* Se ha cambiado el enlace de marcador de posición por el enlace original de Google Drive */}
               <img 
-                src="https://drive.google.com/file/d/1mGTpbNihUPlKI0MohOkeYJqM4UIUKzxD"
+                src="https://drive.google.com/uc?export=view&id=1mGTpbNihUPlKI0MohOkeYJqM4UIUKzxD"
                 alt="Casting icon for girls - white drop"
-                className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl transition-transform duration-300"
+                className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
               <p className="text-xl font-bold text-white mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Casting Girls</p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ scale: 1.1, y: -10 }}
-              whileTap={{ scale: 0.95 }}
-              className="cursor-pointer group"
+            <div
+              className="cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSe8jIC5PG8wQEXbbUpzgLOVDSGnKDy6vMS7HDkPwViiOd62UQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
               <img 
-                src="https://drive.google.com/file/d/1mGTpbNihUPlKI0MohOkeYJqM4UIUKzxD"
+                src="https://storage.googleapis.com/hostinger-horizons-assets-prod/80681178-fc08-4941-ba65-12e11bf9f38e/bb6e600ded531ba611bd4811ab6f85f0.png"
                 alt="Casting icon for guys - splash design"
-                className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl transition-transform duration-300"
+                className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
               <p className="text-xl font-bold text-white mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Casting Guys</p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            className="max-w-lg mx-auto w-full pt-8"
+          <div
+            className="max-w-lg mx-auto w-full pt-8 transition-opacity duration-600 delay-700"
           >
             <p className="text-lg text-white/90 mb-4 font-semibold">
               Subscribe to stay up to date with the latest news
@@ -189,24 +224,19 @@ function App() {
                 <Send className="h-5 w-5 text-white" />
               </Button>
             </form>
-          </motion.div>
-        </motion.main>
+          </div>
+        </main>
 
-        <motion.footer 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.3 }}
-          className="w-full text-center py-6 z-10"
+        <footer 
+          className="w-full text-center py-6 z-10 transition-opacity duration-600 delay-900"
         >
           <a href="mailto:info@bukkakery.com" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 group">
             <Mail className="h-6 w-6 group-hover:scale-110 transition-transform" />
             <span className="font-medium">info@bukkakery.com</span>
           </a>
-        </motion.footer>
-
-        <Toaster />
+        </footer>
       </div>
-    </>
+    </ToastProvider>
   );
 }
 
