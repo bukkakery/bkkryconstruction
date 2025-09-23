@@ -185,33 +185,32 @@ function App() {
           </div>
 
           <div
-            className="flex flex-col sm:flex-row gap-12 justify-center items-center transition-opacity duration-600 delay-500"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center transition-opacity duration-600 delay-500"
           >
             <div
-              className="cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
+              className="relative cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSc2YkTX3niYNfODM8sHjwdZGqDy3eeL1P0FXIM3I7F8foxaVQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
-              <p className="text-xl font-bold text-white mb-0">Casting</p>
-              {/* AQUÍ DEBES REEMPLAZAR CON TU NUEVO ENLACE DE GITHUB PAGES */}
               <img 
-                src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/refs/heads/main/GRILS.png"
+                src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/main/GRILS.png"
                 alt="Casting icon for girls - white drop"
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
-              
+              <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[calc(100%+2rem)] text-xl font-bold text-white mb-0">Casting</p>
+              <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-20 text-sm font-semibold text-white mt-0">Girls</p>
             </div>
 
             <div
-              className="cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
-              onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSe8jIC5PG8wQEXbbUpzgLOVDSGnKDy6vMS7HDkPwViiOd62UQ/viewform?usp=sharing&ouid=100736357196836765397')}
+              className="relative cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
+              onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSe8jIC5PG8wQEXbbUpzgLOVDSGnKDy6vMS7HDkPwViiOd62UQ/viewform?usp=sharing&ouid=100736367873497869687')}
             >
-              <p className="text-xl font-bold text-white mb-0">Casting</p>
               <img 
                 src="https://github.com/bukkakery/BUKKRY-ASTS/blob/main/GUYS.png?raw=true"
                 alt="Casting icon for guys - splash design"
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
-              
+              <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[calc(100%+2rem)] text-xl font-bold text-white mb-0">Casting</p>
+              <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-20 text-sm font-semibold text-white mt-0">Guys</p>
             </div>
           </div>
 
