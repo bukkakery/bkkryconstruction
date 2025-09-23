@@ -159,7 +159,7 @@ function App() {
           >
             {/* Se ha cambiado el enlace de marcador de posición por el enlace original de Google Drive */}
             <img 
-              src="https://drive.google.com/uc?export=view&id=10oPo5xjtvYU9YAhp21CqizBDesxuwlbx" 
+              src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/refs/heads/main/BUKKAKERY.COMLOGO.png" 
               alt="Bukkakery Logo - Professional casting platform"
               className="max-w-md w-full h-auto drop-shadow-2xl"
             />
@@ -185,7 +185,7 @@ function App() {
             >
               {/* Se ha cambiado el enlace de marcador de posición por el enlace original de Google Drive */}
               <img 
-                src="https://drive.google.com/uc?export=view&id=1mGTpbNihUPlKI0MohOkeYJqM4UIUKzxD"
+                src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/refs/heads/main/GRILS.png"
                 alt="Casting icon for girls - white drop"
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
