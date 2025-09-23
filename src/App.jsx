@@ -167,7 +167,7 @@ function App() {
           >
             {/* AQUÍ DEBES REEMPLAZAR CON TU NUEVO ENLACE DE GITHUB PAGES */}
             <img 
-              src="https://<tu-nombre-de-usuario>.github.io/bukkakery-assets/nombre-del-logo.png" 
+              src="https://github.com/bukkakery/BUKKRY-ASTS/blob/main/BUKKAKERY.COMLOGO.png?raw=true" 
               alt="Bukkakery Logo - Professional casting platform"
               className="max-w-md w-full h-auto drop-shadow-2xl"
             />
@@ -194,7 +194,7 @@ function App() {
               <p className="text-xl font-bold text-white mb-2">Casting</p>
               {/* AQUÍ DEBES REEMPLAZAR CON TU NUEVO ENLACE DE GITHUB PAGES */}
               <img 
-                src="https://<tu-nombre-de-usuario>.github.io/bukkakery-assets/nombre-del-icono-casting-girls.png"
+                src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/refs/heads/main/GRILS.png"
                 alt="Casting icon for girls - white drop"
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
@@ -207,7 +207,7 @@ function App() {
             >
               <p className="text-xl font-bold text-white mb-2">Casting</p>
               <img 
-                src="https://storage.googleapis.com/hostinger-horizons-assets-prod/80681178-fc08-4941-ba65-12e11bf9f38e/bb6e600ded531ba611bd4811ab6f85f0.png"
+                src="https://github.com/bukkakery/BUKKRY-ASTS/blob/main/GUYS.png?raw=true"
                 alt="Casting icon for guys - splash design"
                 className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
               />
