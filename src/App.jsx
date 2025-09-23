@@ -185,7 +185,7 @@ function App() {
           </div>
 
           <div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center transition-opacity duration-600 delay-500"
+            className="flex flex-col sm:flex-row gap-0 justify-center items-center transition-opacity duration-600 delay-500"
           >
             <div
               className="cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
