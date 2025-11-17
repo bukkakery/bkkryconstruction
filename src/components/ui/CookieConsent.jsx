@@ -70,7 +70,7 @@ const CookieConsent = () => {
         onClick={handleRevokeConsent}
         className="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg"
       >
-        Configuración de Cookies
+        Cookie Settings
       </button>
     );
   }
@@ -80,14 +80,14 @@ const CookieConsent = () => {
     return (
       <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
         <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
-          <h2 className="text-xl font-bold mb-4">Configuración de Cookies</h2>
+          <h2 className="text-xl font-bold mb-4">Cookie Settings</h2>
           <p className="mb-4">
-            A continuación, puede habilitar o deshabilitar los tipos de cookies que utilizamos.
+            Below, you can enable or disable the types of cookies we use.
           </p>
           <div className="space-y-4">
             <div>
               <label className="flex items-center justify-between">
-                <span className="font-bold">Necesarias</span>
+                <span className="font-bold">Necessary</span>
                 <input
                   type="checkbox"
                   checked={settings.necessary}
@@ -96,12 +96,12 @@ const CookieConsent = () => {
                 />
               </label>
               <p className="text-sm text-gray-600 mt-1">
-                Estas cookies son esenciales para el funcionamiento del sitio web y no se pueden desactivar.
+                These cookies are essential for the website to function and cannot be disabled.
               </p>
             </div>
             <div>
               <label className="flex items-center justify-between">
-                <span className="font-bold">Analíticas</span>
+                <span className="font-bold">Analytics</span>
                 <input
                   type="checkbox"
                   checked={settings.analytics}
@@ -110,12 +110,12 @@ const CookieConsent = () => {
                 />
               </label>
               <p className="text-sm text-gray-600 mt-1">
-                Estas cookies nos ayudan a entender cómo los visitantes interactúan con el sitio web mediante la recopilación de información de forma anónima.
+                These cookies help us understand how visitors interact with the website by collecting information anonymously.
               </p>
             </div>
             <div>
               <label className="flex items-center justify-between">
-                <span className="font-bold">Publicidad</span>
+                <span className="font-bold">Advertising</span>
                 <input
                   type="checkbox"
                   checked={settings.advertising}
@@ -124,7 +124,7 @@ const CookieConsent = () => {
                 />
               </label>
               <p className="text-sm text-gray-600 mt-1">
-                Estas cookies se utilizan para rastrear a los visitantes a través de los sitios web con la intención de mostrar anuncios relevantes y atractivos.
+                These cookies are used to track visitors across websites with the intention of displaying relevant and engaging ads.
               </p>
             </div>
           </div>
@@ -133,13 +133,13 @@ const CookieConsent = () => {
               onClick={handleSaveSettings}
               className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
             >
-              Guardar Configuración
+              Save Settings
             </button>
             <button
               onClick={() => setShowSettings(false)}
               className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded"
             >
-              Cancelar
+              Cancel
             </button>
           </div>
         </div>
@@ -152,27 +152,27 @@ const CookieConsent = () => {
     return (
         <div className="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 text-center z-50">
         <p className="mb-4">
-        En esta web utilizamos cookies propias y de terceros para analizar el uso del sitio web y mostrarte publicidad relacionada con tus preferencias sobre la base de un perfil elaborado a partir de tus hábitos de navegación (por ejemplo, páginas visitadas). Puede consultar nuestra&nbsp; 
-          <a href="/cookie-policy.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">Política de Cookies aquí</a>.
+        This website uses its own and third-party cookies to analyze the use of the website and show you advertising related to your preferences based on a profile created from your browsing habits (for example, pages visited). You can consult our&nbsp;
+          <a href="/cookie-policy.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-300">Cookie Policy here</a>.
         </p>
         <div className="flex justify-center space-x-4">
           <button
             onClick={handleAcceptAll}
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
-            ACEPTAR TODAS
+            ACCEPT ALL
           </button>
           <button
             onClick={handleRejectAll}
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
           >
-            RECHAZAR TODAS
+            REJECT ALL
           </button>
           <button
             onClick={() => setShowSettings(true)}
             className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
           >
-            CONFIGURAR
+            SETTINGS
           </button>
         </div>
       </div>
