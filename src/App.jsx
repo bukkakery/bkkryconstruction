@@ -268,6 +268,13 @@ function App() {
         <footer 
           className="w-full text-center py-6 z-10 transition-opacity duration-600 delay-900"
         >
+          <nav className="mb-4">
+            <a href="/legal-notice.html" className="text-white/80 hover:text-white transition-colors duration-300 px-3">Legal Notice</a>
+            <span className="text-white/50">&bull;</span>
+            <a href="/privacy-policy.html" className="text-white/80 hover:text-white transition-colors duration-300 px-3">Privacy Policy</a>
+            <span className="text-white/50">&bull;</span>
+            <a href="/cookie-policy.html" className="text-white/80 hover:text-white transition-colors duration-300 px-3">Cookie Policy</a>
+          </nav>
           <a href="mailto:info@bukkakery.com" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 group">
             <Mail className="h-6 w-6 group-hover:scale-110 transition-transform" />
             <span className="font-medium">info@bukkakery.com</span>
