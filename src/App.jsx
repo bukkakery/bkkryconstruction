@@ -1,4 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import CookieConsent from './components/ui/CookieConsent';
+
+// --- LÓGICA DE COOKIES Y ANALYTICS ---
+const FIREBASE_MEASUREMENT_ID = 'YOUR_FIREBASE_MEASUREMENT_ID'; // <-- REEMPLAZA ESTO
+
+const loadAnalytics = () => {
+  console.log("DEBUG: El usuario aceptó las cookies. Cargando Google Analytics...");
+
+  // Añadir el script de gtag
+  const gtagScript = document.createElement('script');
+  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${FIREBASE_MEASUREMENT_ID}`;
+  gtagScript.async = true;
+  document.head.appendChild(gtagScript);
+
+  // Inicializar dataLayer y gtag
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', FIREBASE_MEASUREMENT_ID);
+  
+  console.log("DEBUG: Google Analytics cargado.");
+};
+
 
 // --- COMPONENTES LOCALES PARA RESOLVER ERRORES ---
 
@@ -65,6 +88,13 @@ function App() {
   const toast = useToast();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem('cookie_consent');
+    if (consent === 'accepted') {
+      loadAnalytics();
+    }
+  }, []);
 
   const handleCastingClick = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -142,6 +172,7 @@ function App() {
   // Las etiquetas de meta y título se han colocado directamente en el JSX.
   return (
     <ToastProvider>
+        <CookieConsent />
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
