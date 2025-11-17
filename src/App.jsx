@@ -234,6 +234,8 @@ function App() {
             <a href="/privacy-policy.html" className="text-white/80 hover:text-white transition-colors duration-300">Privacy Policy</a>
             <span className="text-white/50 hidden sm:inline">&bull;</span>
             <a href="/cookie-policy.html" className="text-white/80 hover:text-white transition-colors duration-300">Cookie Policy</a>
+            <span className="text-white/50 hidden sm:inline">&bull;</span>
+            <a href="/contact.html" className="text-white/80 hover:text-white transition-colors duration-300">Contact</a>
           </nav>
           <a href="mailto:info@bukkakery.com" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 group text-sm">
             <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
