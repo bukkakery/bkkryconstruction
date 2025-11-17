@@ -70,8 +70,6 @@ const ToastProvider = ({ children }) => {
 };
 const useToast = () => React.useContext(ToastContext);
 
-const Toaster = () => null; // No necesitamos un componente separado, el proveedor ya lo renderiza
-
 // Reemplazo para los componentes de la interfaz de usuario
 const Input = ({ className, ...props }) => (
   <input className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-white transition-colors ${className}`} {...props} />
@@ -101,13 +99,8 @@ function App() {
   };
 
   const handleNewsletterSubmit = async (e) => {
-    // LÍNEA DE DEBUG: Inicio de la función
-    console.log("DEBUG: handleNewsletterSubmit se ha iniciado."); 
-
     e.preventDefault();
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      // LÍNEA DE DEBUG: Email inválido
-      console.log("DEBUG: Email inválido."); 
       toast({
         title: "Invalid email",
         description: "Please enter a valid email address.",
@@ -116,46 +109,27 @@ function App() {
       return;
     }
     setIsSubmitting(true);
-    // LÍNEA DE DEBUG: Email válido, antes de enviar
-    console.log("DEBUG: Email válido, intentando enviar:", email); 
-
-    // ¡Asegúrate de que esta URL sea la ÚLTIMA y CORRECTA!
-    // Esta línea es la que debes haber actualizado con el último URL de Apps Script.
     const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbzYDOjU8OipcfrYwzT30TZYa8KR3qkmsk_rWpKeFqUYEXFfYoXYvI6ieJt3-V6jOlhU/exec';
     const formData = new FormData();
     formData.append('email', email);
-
-    // LÍNEA DE DEBUG: Antes de la llamada fetch
-    console.log("DEBUG: Enviando POST a:", appsScriptUrl); 
 
     try {
       const response = await fetch(appsScriptUrl, {
         method: 'POST',
         body: formData,
       });
-      // LÍNEA DE DEBUG: Después de recibir la respuesta de fetch
-      console.log("DEBUG: Respuesta de fetch recibida (status:", response.status, response.statusText, ")."); 
-
       const data = await response.text();
-      // LÍNEA DE DEBUG: Contenido de la respuesta
-      console.log("DEBUG: Datos de respuesta del Apps Script:", data); 
-
       if (data === "Success") {
         toast({
           title: "Subscription successful! 🎉",
           description: "Thank you for subscribing to our newsletter.",
         });
         setEmail('');
-        // LÍNEA DE DEBUG: Suscripción exitosa
-        console.log("DEBUG: Suscripción exitosa."); 
       } else {
-        // LÍNEA DE DEBUG: Error del Apps Script (no "Success")
-        console.log("DEBUG: Apps Script no devolvió 'Success'. Respuesta:", data); 
         throw new Error(data || "An unknown error occurred.");
       }
     } catch (error) {
-      // LÍNEA DE DEBUG: Error general en la llamada fetch
-      console.error('DEBUG: Error en la llamada fetch al Apps Script:', error); 
+      console.error('Error submitting to Google Apps Script:', error);
       toast({
         title: "An error occurred.",
         description: "Please try again later.",
@@ -163,16 +137,12 @@ function App() {
       });
     } finally {
       setIsSubmitting(false);
-      // LÍNEA DE DEBUG: Envío finalizado
-      console.log("DEBUG: Envío finalizado."); 
     }
   };
   
-  // Se ha eliminado 'Helmet' ya que causaba un error de compilación.
-  // Las etiquetas de meta y título se han colocado directamente en el JSX.
   return (
     <ToastProvider>
-        <CookieConsent />
+      <CookieConsent />
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
@@ -181,103 +151,93 @@ function App() {
           }
         `}
       </style>
-      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden bg-gradient-to-br from-cyan-400 to-blue-950 text-white font-montserrat">
+      <div className="min-h-screen flex flex-col items-center justify-center p-6 sm:p-8 lg:p-12 relative overflow-hidden bg-gradient-to-br from-cyan-400 to-blue-950 text-white font-montserrat">
         <title>Bukkakery - Under Construction | Professional Casting</title>
         <meta name="description" content="Bukkakery is building something amazing. Join our professional castings for girls and guys. Come back soon!" />
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full blur-xl"></div>
-          <div className="absolute bottom-20 right-10 w-40 h-40 bg-white rounded-full blur-xl"></div>
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white rounded-full blur-lg"></div>
+        
+        <div className="absolute inset-0 opacity-10 blur-xl">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-white rounded-full"></div>
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white rounded-full"></div>
         </div>
 
-        <main
-          className="text-center space-y-12 z-10 max-w-4xl mx-auto flex-grow flex flex-col justify-center"
-        >
-          <div
-            className="flex justify-center items-center transition-transform duration-600"
-          >
-            {/* AQUÍ DEBES REEMPLAZAR CON TU NUEVO ENLACE DE GITHUB PAGES */}
+        <main className="text-center space-y-10 md:space-y-16 z-10 max-w-5xl mx-auto flex-grow flex flex-col justify-center">
+          
+          <div className="flex justify-center items-center transition-transform duration-600">
             <img 
               src="https://github.com/bukkakery/BUKKRY-ASTS/blob/main/BUKKAKERY.COMLOGO.png?raw=true" 
               alt="Bukkakery Logo - Professional casting platform"
-              className="max-w-md w-full h-auto drop-shadow-2xl"
+              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto drop-shadow-2xl"
             />
           </div>
 
-          <div
-            className="space-y-4 transition-opacity duration-600 delay-300"
-          >
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg whitespace-nowrap">
+          <div className="space-y-4 transition-opacity duration-600 delay-300">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">
               We're building something amazing!
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 font-medium">
-              Our site is under construction. Get ready for something new!
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 font-medium max-w-2xl mx-auto">
+              Our site is under construction. Get ready for something new and exciting!
             </p>
           </div>
 
-          <div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center transition-opacity duration-600 delay-500"
-          >
-            <div
-              className="relative cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
+          <div className="flex flex-col sm:flex-row gap-8 md:gap-12 justify-center items-center transition-opacity duration-600 delay-500 pt-4">
+            
+            <div 
+              className="relative cursor-pointer group"
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSc2YkTX3niYNfODM8sHjwdZGqDy3eeL1P0FXIM3I7F8foxaVQ/viewform?usp=sharing&ouid=100736357196836765397')}
             >
+              <p className="text-xl md:text-2xl font-bold text-white mb-3 transition-transform duration-300 group-hover:-translate-y-1">For Girls</p>
               <img 
                 src="https://raw.githubusercontent.com/bukkakery/BUKKRY-ASTS/main/GRILS.png"
                 alt="Casting icon for girls - white drop"
-                className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
+                className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
               />
-              <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[calc(100%+2rem)] text-xl font-bold text-white mb-0">Casting</p>
             </div>
-
-            <div
-              className="relative cursor-pointer group hover:scale-110 hover:-translate-y-2 transition-transform duration-300"
+            
+            <div 
+              className="relative cursor-pointer group"
               onClick={() => handleCastingClick('https://docs.google.com/forms/d/e/1FAIpQLSe8jIC5PG8wQEXbbUpzgLOVDSGnKDy6vMS7HDkPwViiOd62UQ/viewform?usp=sharing&ouid=100736367873497869687')}
             >
+              <p className="text-xl md:text-2xl font-bold text-white mb-3 transition-transform duration-300 group-hover:-translate-y-1">For Guys</p>
               <img 
                 src="https://github.com/bukkakery/BUKKRY-ASTS/blob/main/GUYS.png?raw=true"
                 alt="Casting icon for guys - splash design"
-                className="w-32 h-32 md:w-40 md:h-40 object-contain filter drop-shadow-2xl"
+                className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
               />
-              <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[calc(100%+2rem)] text-xl font-bold text-white mb-0">Casting</p>
             </div>
           </div>
-
-          <div
-            className="max-w-lg mx-auto w-full pt-8 transition-opacity duration-600 delay-700"
-          >
-            <p className="text-lg text-white/90 mb-4 font-semibold">
+          
+          <div className="max-w-md mx-auto w-full pt-8 transition-opacity duration-600 delay-700">
+            <p className="text-base md:text-lg text-white/90 mb-4 font-semibold">
               Subscribe to stay up to date with the latest news
             </p>
             <form onSubmit={handleNewsletterSubmit} className="flex items-center gap-2 bg-white/20 backdrop-blur-sm p-2 rounded-xl border border-white/30 shadow-lg">
               <Input
                 type="email"
                 placeholder="Your email address"
-                className="bg-transparent border-none text-white placeholder:text-white/70 focus-visible:ring-0 focus-visible:ring-offset-0 text-base"
+                className="bg-transparent border-none text-white placeholder:text-white/70 focus-visible:ring-0 focus-visible:ring-offset-0 text-base flex-grow"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isSubmitting}
               />
-              <Button type="submit" size="icon" className="bg-white/30 hover:bg-white/50 rounded-lg" disabled={isSubmitting}>
+              <Button type="submit" className="bg-white/30 hover:bg-white/50 rounded-lg p-2.5" disabled={isSubmitting}>
                 <Send className="h-5 w-5 text-white" />
               </Button>
             </form>
           </div>
         </main>
 
-        <footer 
-          className="w-full text-center py-6 z-10 transition-opacity duration-600 delay-900"
-        >
-          <nav className="mb-4">
-            <a href="/legal-notice.html" className="text-white/80 hover:text-white transition-colors duration-300 px-3">Legal Notice</a>
-            <span className="text-white/50">&bull;</span>
-            <a href="/privacy-policy.html" className="text-white/80 hover:text-white transition-colors duration-300 px-3">Privacy Policy</a>
-            <span className="text-white/50">&bull;</span>
-            <a href="/cookie-policy.html" className="text-white/80 hover:text-white transition-colors duration-300 px-3">Cookie Policy</a>
+        <footer className="w-full text-center py-6 z-10 transition-opacity duration-600 delay-900">
+          <nav className="flex justify-center items-center flex-wrap gap-x-3 gap-y-2 mb-4 text-sm">
+            <a href="/legal-notice.html" className="text-white/80 hover:text-white transition-colors duration-300">Legal Notice</a>
+            <span className="text-white/50 hidden sm:inline">&bull;</span>
+            <a href="/privacy-policy.html" className="text-white/80 hover:text-white transition-colors duration-300">Privacy Policy</a>
+            <span className="text-white/50 hidden sm:inline">&bull;</span>
+            <a href="/cookie-policy.html" className="text-white/80 hover:text-white transition-colors duration-300">Cookie Policy</a>
           </nav>
-          <a href="mailto:info@bukkakery.com" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 group">
-            <Mail className="h-6 w-6 group-hover:scale-110 transition-transform" />
-            <span className="font-medium">info@bukkakery.com</span>
+          <a href="mailto:info@bukkakery.com" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 group text-sm">
+            <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
+            <span>info@bukkakery.com</span>
           </a>
         </footer>
       </div>
