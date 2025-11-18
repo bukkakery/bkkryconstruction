@@ -228,19 +228,22 @@ function App() {
         </main>
 
         <footer className="w-full text-center py-6 z-10 transition-opacity duration-600 delay-900">
-          <nav className="flex justify-center items-center flex-wrap gap-x-3 gap-y-2 mb-4 text-sm">
-            <a href="/legal-notice.html" className="text-white/80 hover:text-white transition-colors duration-300">Legal Notice</a>
-            <span className="text-white/50 hidden sm:inline">&bull;</span>
-            <a href="/privacy-policy.html" className="text-white/80 hover:text-white transition-colors duration-300">Privacy Policy</a>
-            <span className="text-white/50 hidden sm:inline">&bull;</span>
-            <a href="/cookie-policy.html" className="text-white/80 hover:text-white transition-colors duration-300">Cookie Policy</a>
-            <span className="text-white/50 hidden sm:inline">&bull;</span>
-            <a href="/contact.html" className="text-white/80 hover:text-white transition-colors duration-300">Contact</a>
-          </nav>
-          <a href="mailto:info@bukkakery.com" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 group text-sm">
-            <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
-            <span>info@bukkakery.com</span>
-          </a>
+          <div className="text-white/80 text-sm">
+            <p>&copy; 2024 Neon Bulb, S.L. All rights reserved.</p>
+            <nav className="flex justify-center items-center flex-wrap gap-x-3 gap-y-2 mt-2">
+              <a href="/legal-notice.html" className="hover:text-white transition-colors duration-300">Legal Notice</a>
+              <span className="text-white/50">&bull;</span>
+              <a href="/privacy-policy.html" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
+              <span className="text-white/50">&bull;</span>
+              <a href="/cookie-policy.html" className="hover:text-white transition-colors duration-300">Cookie Policy</a>
+              <span className="text-white/50">&bull;</span>
+              <a href="/contact.html" className="hover:text-white transition-colors duration-300">Contact</a>
+              <span className="text-white/50">&bull;</span>
+              <a href="/terms-and-conditions.html" className="hover:text-white transition-colors duration-300">Terms & Conditions</a>
+              <span className="text-white/50">&bull;</span>
+              <a href="/products-services-pricing.html" className="hover:text-white transition-colors duration-300">Products, Services, and Pricing</a>
+            </nav>
+          </div>
         </footer>
       </div>
     </ToastProvider>
