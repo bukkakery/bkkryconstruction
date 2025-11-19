@@ -60,8 +60,7 @@ const ToastProvider = ({ children }) => {
     <ToastContext.Provider value={showToast}>
       {children}
       {toast && (
-        <div className={`fixed bottom-4 right-4 z-50 p-4 rounded-lg shadow-lg ${toast.variant === 'destructive' ? 'bg-red-500 text-white' : 'bg-gray-800 text-white'}`}>
-          <h3 className="font-bold">{toast.title}</h3>
+        <div className={`fixed bottom-4 right-4 z-50 p-4 rounded-lg shadow-lg ${toast.variant === 'destructive' ? 'bg-red-500 text-white' : 'bg-gray-800 text-white'}`}>\n          <h3 className="font-bold">{toast.title}</h3>
           {toast.description && <p className="text-sm">{toast.description}</p>}
         </div>
       )}
@@ -75,8 +74,7 @@ const Input = ({ className, ...props }) => (
   <input className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-white transition-colors ${className}`} {...props} />
 );
 const Button = ({ className, children, ...props }) => (
-  <button className={`flex items-center justify-center p-2 rounded-lg transition-colors ${className}`} {...props}>
-    {children}
+  <button className={`flex items-center justify-center p-2 rounded-lg transition-colors ${className}`} {...props}>\n    {children}
   </button>
 );
 
@@ -152,6 +150,7 @@ function App() {
         `}
       </style>
       <div className="min-h-screen flex flex-col items-center justify-center p-6 sm:p-8 lg:p-12 relative overflow-hidden bg-gradient-to-br from-cyan-400 to-blue-950 text-white font-montserrat">
+        {/* This is a comment to create a change */}
         <title>Bukkakery - Under Construction | Professional Casting</title>
         <meta name="description" content="Bukkakery is building something amazing. Join our professional castings for girls and guys. Come back soon!" />
         
