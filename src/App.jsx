@@ -252,6 +252,8 @@ function App() {
                 <a href="/products-services-pricing.html" className="hover:text-white transition-colors duration-300">Products, Services, and Pricing</a>
                 <span className="text-white/50">&bull;</span>
                 <a href="/2257-compliance.html" className="hover:text-white transition-colors duration-300">2257 Compliance</a>
+                <span className="text-white/50">&bull;</span>
+                <a href="/content-removal-policy.html" className="hover:text-white transition-colors duration-300">Content Removal Policy</a>
               </nav>
             </div>
           </footer>
